@@ -1,4 +1,25 @@
 OneWayAir::Application.routes.draw do
+
+  get "/signin" => 'Sessions#new', as: 'new_session'
+
+  post "/sessions/create" => 'Sessions#create', as: 'create_session'
+
+  delete "/signout" => 'Sessions#destroy', as: 'destroy_session'
+
+  resources :reservations
+
+
+  resources :users
+
+
+  root :to => 'flights#index'
+
+  resources :cities
+
+
+  resources :flights
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

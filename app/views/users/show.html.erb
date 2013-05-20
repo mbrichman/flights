@@ -1,0 +1,49 @@
+
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="span12">
+        <h1 class="page-header">Reservations</h1>
+            <table class="table table-hover">
+              <thead><tr>
+                <th>Flight #</th>
+                <th>Miles</th>
+                <th>Duration</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departs</th>
+                <th>Arrives</th>
+                <th>Seats</th>
+
+              </tr></thead>
+
+            <% @user.reservations.each do |r| %>
+              <tr>
+                <td><%= r.flight.flight_num %></td>
+                <td><%= r.flight.miles %></td>
+                <td><%= r.flight.minutes.to_i %> minutes</td>
+                <td><%= r.flight.departure_airport.airport_code %></td>
+                <td><%= r.flight.arrival_airport.airport_code %></td>
+                <td><%= r.flight.dept_time.strftime("%l:%M %p") %></td>
+                <td><%= r.flight.arr_time.strftime("%l:%M %p") %></td>
+                <td><%= r.flight.num_seats %></td>
+              </tr>
+            <% end %>
+            </table>
+    </div>
+  </div>
+
+

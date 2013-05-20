@@ -1,0 +1,46 @@
+<%= form_for(@flight) do |f| %>
+  <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+      <% @flight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :flight_num %><br />
+    <%= f.number_field :flight_num %>
+  </div>
+  <div class="field">
+    <%= f.label :miles %><br />
+    <%= f.number_field :miles %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dept_id %><br />
+    <%= f.collection_select :dept_id, City.all, :id, :airport_code %>
+  </div>
+  <div class="field">
+    <%= f.label :arr_id %><br />
+    <%= f.collection_select :arr_id, City.all, :id, :airport_code %>
+  </div>
+  <div class="field">
+    <%= f.label :dept_time %><br />
+    <%= f.datetime_select :dept_time %>
+  </div>
+  <div class="field">
+    <%= f.label :arr_time %><br />
+    <%= f.datetime_select :arr_time %>
+  </div>
+  <div class="field">
+    <%= f.label :num_seats %><br />
+    <%= f.number_field :num_seats %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

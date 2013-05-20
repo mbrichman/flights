@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Flight num:</b>
+  <%= @flight.flight_num %>
+</p>
+
+<p>
+  <b>Miles:</b>
+  <%= @flight.miles %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @flight.duration %>
+</p>
+
+<p>
+  <b>Dept:</b>
+  <%= @flight.dept_id %>
+</p>
+
+<p>
+  <b>Arr:</b>
+  <%= @flight.arr_id %>
+</p>
+
+<p>
+  <b>Dept time:</b>
+  <%= @flight.dept_time %>
+</p>
+
+<p>
+  <b>Arr time:</b>
+  <%= @flight.arr_time %>
+</p>
+
+<p>
+  <b>Num seats:</b>
+  <%= @flight.num_seats %>
+</p>
+
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> |
+<%= link_to 'Back', flights_path %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  flight_num: 1
+  miles: 1
+  duration: 1
+  dept_id: 1
+  arr_id: 1
+  dept_time: 2013-05-20 08:49:21
+  arr_time: 2013-05-20 08:49:21
+  num_seats: 1
+
+two:
+  flight_num: 1
+  miles: 1
+  duration: 1
+  dept_id: 1
+  arr_id: 1
+  dept_time: 2013-05-20 08:49:21
+  arr_time: 2013-05-20 08:49:21
+  num_seats: 1

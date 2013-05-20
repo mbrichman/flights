@@ -1,0 +1,40 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="span12">
+        <h1 class="page-header">Today's Flight Schedule</h1>
+            <table class="table table-hover">
+              <thead><tr>
+                              <th>Flight #</th>
+                              <th>Miles</th>
+                              <th>Duration</th>
+                              <th>From</th>
+                              <th>To</th>
+                              <th>Departs</th>
+                              <th>Arrives</th>
+                              <th>Seats</th>
+                              <th></th>
+
+                            </tr></thead>
+
+            <% @flights.each do |flight| %>
+              <tr>
+                <td><%= flight.flight_num %></td>
+                <td><%= flight.miles %></td>
+                <td><%= flight.minutes.to_i %> minutes</td>
+                <td><%= flight.departure_airport.airport_code %></td>
+                <td><%= flight.arrival_airport.airport_code %></td>
+                <td><%= flight.dept_time.strftime("%l:%M %p") %></td>
+                <td><%= flight.arr_time.strftime("%l:%M %p") %></td>
+                <td><%= flight.num_seats %></td>
+                <%= form_tag reservations_path, method: 'post' do %>
+                    <%= hidden_field_tag :flight_id, flight.id %>
+                    <td><%= submit_tag 'Book Now', :class => 'btn btn-success' %></td>
+                <% end %>
+              </tr>
+            <% end %>
+            </table>
+
+            <br />
+
+            <%= link_to 'New Flight', new_flight_path %>
